@@ -10,7 +10,9 @@ import UIKit
 import AVFoundation
 
 class ViewController: UIViewController {
-  
+    var pgImage = [UIImage(named: "images2")!, UIImage(named: "images")!]
+    @IBOutlet weak var images: UIImageView!
+    
     @IBOutlet weak var b1: UIButton!
     @IBOutlet weak var b2: UIButton!
     @IBOutlet weak var b3: UIButton!
@@ -41,9 +43,11 @@ class ViewController: UIViewController {
    
    if  checkWinner(p: "X") {
               okAlert(title: "Yayyyy, X wins 😍", message: "Congrats! now reset the game !")
+    images.image = pgImage.randomElement()!
           }
           if  checkWinner(p: "O") {
               okAlert(title: "Yayyyy, O wins 😍", message: "Congrats! now reset the game !")
+            images.image = pgImage.randomElement()!
           }
           
       }
@@ -111,7 +115,7 @@ class ViewController: UIViewController {
              b8.isUserInteractionEnabled = true
              b9.isUserInteractionEnabled = true
              turn = 0
-        
+        images.image = pgImage.randomElement()!
     }
     func okAlert(title: String, message: String)
         {
@@ -134,6 +138,18 @@ class ViewController: UIViewController {
     }
 
   }
+    
+   @IBAction func
+    succesButtonTapped(_sender:UIButton) {
+    let generator =
+        UINotificationFeedbackGenerator()
+    generator.notificationOccurred(.success)
+    }
+    
+    
+    
+    
+    
 }
     
     
